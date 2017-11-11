@@ -3,30 +3,37 @@ package devops.numbers;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public final class NumberWordsApplication {
-	private final NumberWords numberWords ;
-	private final BufferedReader reader ;
-	
+	private final NumberWords numberWords;
+
 	public NumberWordsApplication() {
-		numberWords = new NumberWords() ;
-		reader = new BufferedReader( new InputStreamReader( System.in ) ) ;
+		numberWords = new NumberWords();
+
 	}
-	
+
 	public void execute() {
-		while( true ) {
-			try {
-				System.out.print( "Enter number (0 to exit): " ) ;
-				String value = reader.readLine() ;
-				int number = Integer.parseInt( value ) ;
-			} catch ( NumberFormatException | IOException e ) {
-				System.out.println( "Invalid number" ) ;
+		boolean start = true;
+		Scanner scanner = new Scanner(System.in);
+		System.out
+				.println("Welcome to Digits to Words Converter Application, \n Type '0' to exit the program");
+		do {
+
+			int userResponse = scanner.nextInt();
+			if (userResponse == 0) {
+				start = false;
+				scanner.close();
+				System.out.println("Thanks for using the application!");
+			} else {
+				System.out.println(userResponse + " = "
+						+ numberWords.toWords(userResponse));
 			}
-		}
+		} while (start);
 	}
 
 	public static void main(String[] args) {
-		new NumberWordsApplication().execute() ;
+		new NumberWordsApplication().execute();
 	}
 
 }
