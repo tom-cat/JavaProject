@@ -1,7 +1,9 @@
 package devops.numbers;
 public class NumberWords {
+	public static void main(String[] args) {
+        System.out.println("Hello World!"); // Display the string.
+    }
 
-public static void main(String[] args) {
 
 	private String returnValue = "";
 	public String toWords( int number ) {
@@ -12,6 +14,6 @@ public static void main(String[] args) {
 	}
 
 
-}
+
 }
 
